@@ -115,13 +115,15 @@ using Overriding;
 using Delegate;
 using Multithreading;
 using System.Diagnostics.Metrics;
+using Event;
+using System.Diagnostics;
 
 namespace Program
 {
     public class Program
     {
-        //static void Main(string[] args)
-        //{
+        static void Main(string[] args)
+        {
             //Intro CI = new Intro();
             //CI.DisplayMessage();
 
@@ -485,13 +487,183 @@ namespace Program
             //Console.WriteLine("Fetching...");
             //await tp.FetchData();
             //Console.WriteLine("Done!");
-        //}
-        static async Task Main(string[] args)
-        {
-            ThreadingProgram tp = new ThreadingProgram();
-            Console.WriteLine("Fetching...");
-            await tp.FetchData();
-            Console.WriteLine("Done!");
+
+            //Predicate<int> isEven = n => n % 2 == 0;
+            //Console.WriteLine("Is 4 even? " + isEven(4));
+            //Console.WriteLine("Is 7 even? " + isEven(7));
+
+            //PredicateExample pe = new PredicateExample();
+            //Predicate<int> predicate;
+            //predicate = pe.IsEven;
+            //Console.WriteLine("Is 10 even? " + predicate(10));
+            //predicate = pe.IsPositive;
+            //Console.WriteLine("Is -5 positive? " + predicate(-5));
+            //Console.WriteLine("Is 15 positive? " + predicate(15));
+
+            //List<int> numbers = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            //Predicate<int> isOdd = n => n % 2 != 0;
+
+            //var firstOdd = numbers.Find(isOdd);
+            //Console.WriteLine("First odd number: " + firstOdd);
+
+            //var allOdd = numbers.FindAll(isOdd);
+            //Console.WriteLine("All odd numbers: " + string.Join(", ", allOdd));
+            //allOdd.ForEach(n => Console.WriteLine("Odd Number is " + n));
+
+            //List<StudentInfo> students = new List<StudentInfo>
+            //{
+            //    new StudentInfo{Id=1, Name="Bisho", Marks=67},
+            //    new StudentInfo{Id=2, Name="Ajay", Marks=43},
+            //    new StudentInfo{Id=3, Name="Vijay", Marks=76},
+            //    new StudentInfo{Id=4, Name="Kaushal", Marks=79},
+            //    new StudentInfo{Id=5, Name="Anmol", Marks=16},
+            //};
+
+            //Predicate<StudentInfo> predicate = s => s.Marks > 50;
+
+            //var passedStudent = students.FindAll(predicate);
+            //passedStudent.ForEach(s => Console.WriteLine("Name of Student: " + s.Name + ", Marks is " + s.Marks));
+
+            //Action greet = () => Console.WriteLine("Hello from Action!");
+            //greet();
+
+            //Action<string> printMessage = msg => Console.WriteLine(msg);
+            //printMessage("I am Bisho, printing action delegate.");
+
+            //Action<int, int> AddNumber =(a,b) => Console.WriteLine("Sum of Two number is " + (a + b));
+            //AddNumber(45, 32);
+
+            //Action<string> Message = msg =>
+            //{
+            //    string upperMsg = msg.ToUpper();
+            //    Console.WriteLine(upperMsg);
+            //};
+            //Message("This is Andor Tech.");
+
+            //DelegateExample de = new DelegateExample();
+            //Action<string> action = de.DisplayMessage;
+            //action("What are you doing currently?");
+
+            //List<int> ls = new List<int> { 1, 2, 3, 4, 5 };
+            //ls.ForEach(n => Console.WriteLine(n * 2));
+
+            //Func<int, int> square = n => n * n;
+            //Console.WriteLine("Square of n is " + square(6));
+
+            //Func<int, int, int> AddNumber = (a, b) => a + b;
+            //Console.WriteLine("Sum of Two number is " + AddNumber(43, 67));
+
+            //Func<string> greet = () => "Good Morning!";
+            //Console.WriteLine(greet());
+
+            //Func<int, int, int> MulNumber = (a, b) =>
+            //{
+            //    int res = a * b;
+            //    return res;
+            //};
+            //Console.WriteLine("Product of two number is " + MulNumber(32, 12));
+
+            //PredicateExample pe = new PredicateExample();
+            //Func<int, bool> isP = pe.IsPositive;
+            //Console.WriteLine("Given number is Positive or not? " + isP(-43));
+
+            //List<int> ls = new List<int> { 34, 24, 56, 67, 12, 55, 89 };
+            //Func<int, bool> isEven = n => n % 2 == 0;
+            //var res = ls.Where(isEven);
+            //foreach(var v in res)
+            //{
+            //    Console.WriteLine("Even number is " + v);
+            //}
+
+            //List<StudentInfo> students = new List<StudentInfo>
+            //{
+            //    new StudentInfo{Id=1, Name="Bisho", Marks=67},
+            //    new StudentInfo{Id=2, Name="Ajay", Marks=43},
+            //    new StudentInfo{Id=3, Name="Vijay", Marks=76},
+            //    new StudentInfo{Id=4, Name="Kaushal", Marks=79},
+            //    new StudentInfo{Id=5, Name="Anmol", Marks=16},
+            //};
+
+            //var ls = students.OrderBy(s => s.Name);
+            //foreach(var v in ls)
+            //{
+            //    Console.WriteLine("Name: " + v.Name + ", Marks: " + v.Marks);
+            //}
+
+            //List<int> numbers = new List<int>() { 36, 71, 12, 15, 29, 18, 27, 17, 9, 34 };
+
+            //var res1 = numbers.Select(n => n * n);
+
+            //foreach(var v in res1)
+            //{
+            //    Console.Write(v + " ");
+            //}
+            //Console.WriteLine();
+
+            //var res2 = numbers.FindAll(n => n % 3 == 0);
+            //foreach (var v in res2)
+            //{
+            //    Console.Write(v + " ");
+            //}
+            //Console.WriteLine();
+
+            //ShowMessage message = delegate (string msg)
+            //{
+            //    Console.WriteLine("Message: " + msg);
+            //};
+            //message("This is message for anonymous method.");
+
+            //Button btn = new Button();
+
+            //btn.OnClick += delegate ()
+            //{
+            //    Console.WriteLine("Button was clicked!");
+            //};
+            //btn.click();
+
+            //Methods process = new Methods();
+
+            //process.ProcessCompleted += ProcessCompletedHandler;
+            //process.Start();
+
+            //process.ProcessCanceled += ProcessCanceledHandler;
+            //process.Cancel();
+
+            //static void ProcessCompletedHandler()
+            //{
+            //    Console.WriteLine("Process Completed!");
+            //}
+
+            //static void ProcessCanceledHandler()
+            //{
+            //    Console.WriteLine("Process Canceled!");
+            //}
+
+            //TaskManager manager = new TaskManager();
+            //manager.TaskCompleted += Manager_TaskCompleted;
+            //manager.RunTask();
+
+            //static void Manager_TaskCompleted(object sender, EventArgs e)
+            //{
+            //    Console.WriteLine("Task Completed!");
+            //}
+
+            Downloader downloader = new Downloader();
+            downloader.DownloadCompleted += Downloader_DownloadCompleted;
+            downloader.Download("Example.txt");
+
+            static void Downloader_DownloadCompleted(object sender, DownloadEventArgs e)
+            {
+                Console.WriteLine($"Download Finished: {e.FileName}");
+            }
+
         }
-    }
+    //static async Task Main(string[] args)
+    //{
+    //    ThreadingProgram tp = new ThreadingProgram();
+    //    Console.WriteLine("Fetching...");
+    //    await tp.FetchData();
+    //    Console.WriteLine("Done!");
+    //}
+}
 }
